@@ -1,0 +1,37 @@
+This is example code of how to get webhook notifications from BeanstalkApp.
+
+Pages hit during development:
+http://support.beanstalkapp.com/customer/portal/articles/68163-web-hooks-for-deployments
+http://www.ibm.com/developerworks/xml/tutorials/x-alertxmpptut/section4.html
+http://www.sencha.com/forum/archive/index.php/t-178193.html?s=3519335403211df2b89c70ae20ce811f
+http://php.net/manual/en/wrappers.php.php
+http://code.google.com/p/xmpphp/
+http://support.google.com/talk/bin/answer.py?hl=en&answer=27930
+
+This project requires the XMPPHP project. It's not been updated in 3 years, since 2009, so the 
+link to the latest and greatest will probably always be:
+
+http://xmpphp.googlecode.com/files/xmpphp-0.1rc2-r77.tgz
+
+Extract the contents of that archive and move the directory named XMPPHP to location where this 
+file will live on your webserver.  
+
+If you ssh/putty to your server and change to the directory where this file will live, you can 
+just paste these into your terminal window to complete this process:
+
+wget http://xmpphp.googlecode.com/files/xmpphp-0.1rc2-r77.tgz
+tar -xzf xmpphp-0.1rc2-r77.tgz
+mv xmpphp-0.1rc2-r77/XMPPHP .
+rm -rf xmpphp-0.1rc2-r77
+rm -f xmpphp-0.1rc2-r77.tgz
+
+You will then also need to change the constants in the php file.  
+If you're using this as a BeanstalkApp deployment notification tool, log into beanstalk 
+and then set the post deployment notification for your project. The script can be used 
+for multiple projects. No alteration is required.
+
+IMPORTANT!  This script requires TCP port 5222 to be open outbund on your server.
+If this port is closed you will get "Could not connect before time out" errors.
+
+IMPORTANT!  Google Talk works off of invites.  So you MUST have chatting between source and 
+destination working before you use this script.
