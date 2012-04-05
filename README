@@ -1,4 +1,5 @@
-This is example code of how to get webhook notifications from BeanstalkApp.
+This is example code of how to get Google Talk notifications when a web page is hit.  
+The example script handles webhook notifications from BeanstalkApp.
 
 Pages hit during development:
 http://support.beanstalkapp.com/customer/portal/articles/68163-web-hooks-for-deployments
