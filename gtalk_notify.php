@@ -4,11 +4,10 @@
  *
  * This is example code of how to get webhook notifications from BeanstalkApp.
  * 
- * @link http://thecodecave.com
+ * @link http://thecodecave.com/scripts/google-talk-notifications-beanstalkapp-example/
  * 
  * @author Brian Layman <http://eHermitsInc.com/>
  * @license GPL-2.0+
- * @registry SPDX * 
  * 
  * Pages hit during development:
  * http://support.beanstalkapp.com/customer/portal/articles/68163-web-hooks-for-deployments
@@ -33,7 +32,24 @@
  * IMPORTANT!  Google Talk works off of invites.  So you MUST have chatting between source and 
  * destination working before you use this script.
  *
+ * 
+ * License:
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * a long with this program. If not, see <http://www.gnu.org/licenses/>.
+ * 
 */
+
 
 define( 'SOURCE_USERNAME', 'ChangeMe@gmail.com' );
 define( 'SOURCE_PASSWORD', '0bvi0slyN0tS3cur3' );
@@ -112,7 +128,11 @@ This script expects the following JSON to be sent to it from BeanStalkApp. Howev
 
 // Build the message
 if ( $notification ) {
-    $msg = 'BS DEPLOY - ' . $notification->repository . ' - Revision ' . $notification->revision . ' by ' . $notification->author_name . ' deployed. Comment: ' . $notification->comment;
+	if ( is_null( $notification->deployed_at ) ) {
+		$msg = 'BeanStalk Pre-Deploy - ' . $notification->repository . ' - Revision ' . $notification->revision . ' by ' . $notification->author_name . ' to be deployed. Comment: ' . $notification->comment;
+	} else {
+		$msg = 'BeanStalk Deploy - ' . $notification->repository . ' - Revision ' . $notification->revision . ' by ' . $notification->author_name . ' deployed. Comment: ' . $notification->comment;
+	}	
 } else {
   // Fail Silently
   exit;
@@ -121,4 +141,4 @@ if ( $notification ) {
 // Now Send the Message
 $gtalk = new GTalk;
 $gtalk->send_message( DESTINATION, $msg );
-echo "1";
+// echo "1";
