@@ -9,10 +9,9 @@ http://php.net/manual/en/wrappers.php.php
 http://code.google.com/p/xmpphp/
 http://support.google.com/talk/bin/answer.py?hl=en&answer=27930
 
-This project requires the XMPPHP project. It's not been updated in 3 years, since 2009, so the 
-link to the latest and greatest will probably always be:
-
-http://xmpphp.googlecode.com/files/xmpphp-0.1rc2-r77.tgz
+This project requires the XMPPHP project. It's been archived. 
+So the link to the latest and greatest will probably always be:
+https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/xmpphp/xmpphp-0.1rc2-r77.tgz
 
 Extract the contents of that archive and move the directory named XMPPHP to location where this 
 file will live on your webserver.  
@@ -20,7 +19,7 @@ file will live on your webserver.
 If you ssh/putty to your server and change to the directory where this file will live, you can 
 just paste these into your terminal window to complete this process:
 
-wget http://xmpphp.googlecode.com/files/xmpphp-0.1rc2-r77.tgz
+wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/xmpphp/xmpphp-0.1rc2-r77.tgz
 tar -xzf xmpphp-0.1rc2-r77.tgz
 mv xmpphp-0.1rc2-r77/XMPPHP .
 rm -rf xmpphp-0.1rc2-r77
